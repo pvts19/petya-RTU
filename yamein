@@ -33,10 +33,10 @@
                     <p class="title-profile-info">Информация об авторе</p>
                     <img class="photo-profile" src="images/ava.jpeg" alt="Моя фотография">
 
-                    <p class="my-FIO">Демидов Иван Вадимович</p>
+                    <p class="my-FIO">Царегородцев Пётр Васильевич</p>
                     <p class="my-group">ЭФБО-08-24</p>
                 </div>
-                    <p class="text-about-me">Обо мне: Родился в Москве, в 4 года оказался во Владимире, в 18 лет вернулся в Москву. Программирую, играю в футбол и волейбол. Апаю ммр в доте ; </p>
+                    <p class="text-about-me">Кратко обо мне: Родился в Нижнем Новгороде, прожил там большую часть жизни, но совсем недавно окозался в Москве и поступил в великолепый университет, на данный момент учусь и работаю ; </p>
 
                 <div class="skills-container">
                     <div class="skill-tag">Программировать</div>
@@ -46,13 +46,13 @@
 
                 <div class="exp-with-work">
                     <p class="title-exp">Опыт работы</p>
-                    <p class="text-exp">не было, но планируется</p>
+                    <p class="text-exp">не было</p>
                 </div>
             </div>
         </main>
 
         <footer>
-            <p class="footer-text">Здесь что-то скоро появится..</p>
+            <p class="footer-text">Здесь что-то скоро появится... возможно)</p>
         </footer>
     </div>
 </body>
