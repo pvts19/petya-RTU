@@ -2,7 +2,7 @@
 
 ## html pages:
 
-* index.html
+* yamein.html
 * contacs.html
 * goods.html
 * news.html
