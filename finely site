@@ -1,0 +1,136 @@
+import React from "react";
+import { Mail, Phone, Github, Linkedin } from "lucide-react";
+import { motion } from "framer-motion";
+
+
+
+export default function PortfolioSite({ photoPath = "" }) {
+  const base = typeof process !== "undefined" && process.env && process.env.PUBLIC_URL ? process.env.PUBLIC_URL : "";
+  const defaultPhoto = photoPath && photoPath.length ? photoPath : `${base}/assets/IMG_0005.jpeg`;
+
+  const fallback =
+    'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="320" height="320"><rect fill="%23f3f4f6" width="100%" height="100%"/><text x="50%" y="50%" font-size="20" font-family="Arial" fill="%239CA3AF" dominant-baseline="middle" text-anchor="middle">Фото</text></svg>';
+
+  return (
+    <div className="min-h-screen bg-white text-gray-800 antialiased">
+      <header className="max-w-5xl mx-auto px-6 py-8 flex items-center justify-between border-b border-gray-100">
+        <h1 className="text-xl font-bold tracking-tight text-gray-900">Царегородцев Пётр Васильевич</h1>
+        <nav className="space-x-4 text-sm text-gray-600">
+          <a href="#about" className="hover:text-gray-900">О себе</a>
+          <a href="#skills" className="hover:text-gray-900">Навыки</a>
+          <a href="#projects" className="hover:text-gray-900">Проекты</a>
+          <a href="#contacts" className="hover:text-gray-900">Контакты</a>
+        </nav>
+      </header>
+
+      <main className="max-w-5xl mx-auto px-6">
+        <section className="grid md:grid-cols-3 gap-8 items-center py-12">
+          <motion.div
+            initial={{ x: -40, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            className="md:col-span-2"
+          >
+            <h2 className="text-3xl font-bold mb-3 text-gray-900">Frontend‑разработчик (минималистично)</h2>
+            <p className="text-lg leading-relaxed text-gray-700">Привет! Я Петя — собираю аккуратные минималистичные сайты. Ниже — мои проекты и контакты.</p>
+
+            <div className="mt-6 flex gap-3">
+              <a href="#projects" className="inline-block px-4 py-2 rounded-lg border border-gray-300 text-sm hover:bg-gray-100">Мои работы</a>
+              <a href="#contacts" className="inline-block px-4 py-2 rounded-lg bg-gray-900 text-white text-sm hover:bg-gray-800">Написать мне</a>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ scale: 0.95, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            className="flex justify-center md:justify-end"
+          >
+            <img
+              src={defaultPhoto}
+              alt="Профиль"
+              className="w-44 h-44 rounded-xl object-cover shadow-md"
+              onError={(e) => {
+                // защита от бесконечного цикла при ошибке
+                // eslint-disable-next-line no-param-reassign
+                e.currentTarget.onerror = null;
+                e.currentTarget.src = fallback;
+              }}
+            />
+          </motion.div>
+        </section>
+
+        <section id="about" className="py-8 border-t border-gray-100">
+          <h3 className="text-xl font-semibold mb-3 text-gray-900">О себе</h3>
+          <p className="text-gray-700">Я увлекаюсь веб-разработкой и постоянно учусь новому.(нет) </p>
+        </section>
+
+        <section id="skills" className="py-8 border-t border-gray-100">
+          <h3 className="text-xl font-semibold mb-4 text-gray-900">Навыки</h3>
+          <div className="flex flex-wrap gap-3">
+            {["HTML/CSS", "JavaScript", "React", "TypeScript", "Tailwind CSS", "Git", "Node.js"].map((s) => (
+              <span key={s} className="px-3 py-1.5 rounded-full border border-gray-300 text-sm bg-gray-50 text-gray-700">{s}</span>
+            ))}
+          </div>
+        </section>
+
+        <section id="projects" className="py-8 border-t border-gray-100">
+          <h3 className="text-xl font-semibold mb-4 text-gray-900">Проекты</h3>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { title: "Портфолио‑сайт", desc: "Адаптивный сайт с аккуратной типографикой.", tag: "React" },
+              { title: "To‑Do App", desc: "Минималистичное приложение для задач.", tag: "TypeScript" },
+              { title: "Мини‑игра", desc: "Небольшая браузерная игра.", tag: "Canvas" },
+            ].map((p) => (
+              <article key={p.title} className="p-4 rounded-lg border border-gray-200 hover:shadow-md transition">
+                <h4 className="font-medium text-gray-900">{p.title}</h4>
+                <p className="text-sm text-gray-600 mt-2">{p.desc}</p>
+                <div className="mt-3 text-xs inline-block px-2 py-1 border border-gray-300 rounded bg-gray-50 text-gray-700">{p.tag}</div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="contacts" className="py-10 border-t border-gray-100">
+          <h3 className="text-xl font-semibold mb-4 text-gray-900">Контакты</h3>
+
+          <div className="grid md:grid-cols-2 gap-6 items-start">
+            <div className="space-y-3">
+              <div className="flex items-center gap-3 text-gray-700">
+                <Mail size={18} />
+                <span className="text-sm">petya@mail.com</span>
+              </div>
+
+              <div className="flex items-center gap-3 text-gray-700">
+                <Phone size={18} />
+                <span className="text-sm">+7 999 138 66 46</span>
+              </div>
+
+              <div className="flex items-center gap-3 text-gray-700">
+                <Github size={18} />
+                <a href="https://github.com/petya" className="text-sm hover:underline">github.com/pvts19/petya-RTU</a>
+              </div>
+
+              <div className="flex items-center gap-3 text-gray-700">
+              </div>
+            </div>
+
+            <form className="p-4 rounded-lg border border-gray-200">
+              <label className="block text-sm mb-2 text-gray-700">Сообщение</label>
+              <textarea rows={4} className="w-full p-2 border border-gray-300 rounded mb-3 focus:ring-2 focus:ring-gray-400" placeholder="Коротко о вашей задаче..."></textarea>
+              <div className="flex gap-2">
+                <input type="text" className="flex-1 p-2 border border-gray-300 rounded focus:ring-2 focus:ring-gray-400" placeholder="Имя" />
+                <input type="email" className="w-48 p-2 border border-gray-300 rounded focus:ring-2 focus:ring-gray-400" placeholder="Email" />
+              </div>
+              <button type="button" className="mt-3 px-4 py-2 rounded bg-gray-900 text-white hover:bg-gray-800">Отправить</button>
+            </form>
+          </div>
+        </section>
+
+        <footer className="py-8 text-center text-sm text-gray-500 border-t border-gray-100">
+          © {new Date().getFullYear()} я царегородцев — Все права защищены.
+        </footer>
+      </main>
+    </div>
+  );
+}
