@@ -1,4 +1,4 @@
-# Project (web-site) 
+# Project (web-site) like petya
 
 ## html pages:
 
